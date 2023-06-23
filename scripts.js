@@ -1,4 +1,4 @@
-function generateRandomArray(length, min, max) {
+function generateNewArray(length, min, max) {
   var arr = [];
   for (var i = 0; i < length; i++) {
     var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -23,8 +23,8 @@ function createBars(arr) {
 }
 
 document
-  .getElementById("start-sort-button")
+  .getElementById("new-array-button")
   .addEventListener("click", function () {
-    var arr = generateRandomArray(80, 10, 100);
+    var arr = generateNewArray(80, 10, 100);
     createBars(arr);
   });
