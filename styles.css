@@ -1,0 +1,38 @@
+body {
+  background-color: #000000;
+}
+
+.header {
+  background-color: white;
+  padding: 5px;
+}
+
+.title {
+  color: black;
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+}
+
+.button {
+  background-color: #000000;
+  color: white;
+  padding: 10px 10px;
+  font-size: 15px;
+  margin: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  width: 80px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #424242;
+}
+
+.container {
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
