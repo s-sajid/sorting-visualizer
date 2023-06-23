@@ -7,13 +7,6 @@ body {
   padding: 5px;
 }
 
-.title {
-  color: black;
-  font-size: 24px;
-  margin: 0;
-  text-align: center;
-}
-
 .button {
   background-color: #000000;
   color: white;
