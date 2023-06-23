@@ -1,4 +1,4 @@
-function generateNewArray(length, min, max) {
+function newArray(length, min, max) {
   var arr = [];
   for (var i = 0; i < length; i++) {
     var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -12,7 +12,7 @@ function createBars(arr) {
   container.innerHTML = "";
 
   var maxVal = Math.max(...arr);
-  var barHeightScale = 800 / maxVal; // Scale the bar height based on the maximum value
+  var barHeightScale = 800 / maxVal;
 
   arr.forEach(function (value) {
     var bar = document.createElement("div");
@@ -21,10 +21,3 @@ function createBars(arr) {
     container.appendChild(bar);
   });
 }
-
-document
-  .getElementById("new-array-button")
-  .addEventListener("click", function () {
-    var arr = generateNewArray(80, 10, 100);
-    createBars(arr);
-  });
