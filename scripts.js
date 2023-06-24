@@ -1,23 +1,67 @@
-function newArray(length, min, max) {
-  var arr = [];
-  for (var i = 0; i < length; i++) {
-    var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    arr.push(randomNumber);
+let values = [];
+let delay = 25;
+
+function buildArray() {
+  var length = 80;
+  var min = 10;
+  var max = 100;
+
+  values = [];
+
+  for (let i = 0; i < length; i++) {
+    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    values.push(randomNumber);
   }
-  return arr;
+  updateBars();
 }
 
-function createBars(arr) {
+function updateBars() {
   var container = document.getElementById("container");
   container.innerHTML = "";
 
-  var maxVal = Math.max(...arr);
-  var barHeightScale = 800 / maxVal;
+  var maxVal = Math.max(...values);
+  var maxBarHeight = 800;
+  var barHeightScale = maxBarHeight / maxVal;
 
-  arr.forEach(function (value) {
+  values.forEach(function (value) {
     var bar = document.createElement("div");
     bar.className = "bar";
     bar.style.height = value * barHeightScale + "px";
     container.appendChild(bar);
   });
+}
+
+function reset() {
+  values = [];
+  buildArray();
+}
+
+reset();
+
+// Sorting Algorithms
+
+function bubbleSort() {
+  var len = values.length;
+
+  function performSwap(i) {
+    setTimeout(function () {
+      var swapped = false;
+
+      for (var j = 0; j < len - 1; j++) {
+        if (values[j] > values[j + 1]) {
+          var temp = values[j];
+          values[j] = values[j + 1];
+          values[j + 1] = temp;
+          swapped = true;
+        }
+      }
+
+      updateBars();
+
+      if (swapped) {
+        performSwap(i + 1);
+      }
+    }, delay);
+  }
+  performSwap(0);
 }
