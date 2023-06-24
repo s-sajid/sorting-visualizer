@@ -1,6 +1,11 @@
 let values = [];
 let delay = 25;
 
+function updateDelay(value) {
+  delay = parseInt(value);
+  document.getElementById("delayValue").textContent = delay + "ms";
+}
+
 function buildArray() {
   var length = 80;
   var min = 10;
