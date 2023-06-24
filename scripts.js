@@ -40,6 +40,10 @@ function reset() {
   buildArray();
 }
 
+function reload() {
+  location.reload();
+}
+
 reset();
 
 // Sorting Algorithms
