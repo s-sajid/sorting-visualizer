@@ -62,3 +62,15 @@ body {
   margin-left: 5px;
   vertical-align: top;
 }
+
+.github-link {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.github-icon {
+  width: 40px;
+  height: 40px;
+  margin-top: -10px;
+}
