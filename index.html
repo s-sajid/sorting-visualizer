@@ -34,6 +34,21 @@
           <span id="delayValue">50ms</span>
         </label>
       </div>
+
+      <div class="slider-container">
+        <input
+          type="range"
+          id="lengthSlider"
+          min="10"
+          max="80"
+          value="80"
+          oninput="updateLength(this.value)"
+        />
+        <label for="lengthSlider">
+          Array Size:
+          <span id="lengthValue">80</span>
+        </label>
+      </div>
     </header>
 
     <div id="container"></div>

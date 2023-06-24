@@ -1,15 +1,21 @@
 let values = [];
 let delay = 25;
+let length = 80;
 
 function updateDelay(value) {
   delay = parseInt(value);
   document.getElementById("delayValue").textContent = delay + "ms";
 }
 
-function buildArray() {
-  var length = 80;
-  var min = 10;
-  var max = 100;
+function updateLength(value) {
+  length = parseInt(value);
+  document.getElementById("lengthValue").textContent = length;
+  buildArray(length);
+}
+
+function buildArray(length) {
+  const min = 10;
+  const max = 100;
 
   values = [];
 
@@ -17,6 +23,7 @@ function buildArray() {
     let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
     values.push(randomNumber);
   }
+
   updateBars();
 }
 
@@ -42,7 +49,7 @@ function sleep(ms) {
 
 function reset() {
   values = [];
-  buildArray();
+  buildArray(length);
 }
 
 function reload() {
