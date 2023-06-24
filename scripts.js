@@ -1,6 +1,6 @@
 let values = [];
 let delay = 25;
-let length = 80;
+let length = 50;
 
 function updateDelay(value) {
   delay = parseInt(value);
