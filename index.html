@@ -6,6 +6,12 @@
     <title>Sorting Visualizer</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .slider-container {
+        display: inline-block;
+        margin-right: 20px;
+      }
+    </style>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
@@ -19,24 +25,6 @@
         <button class="button" onclick="heapSort()">Heap Sort</button>
         <button class="button" onclick="mergeSort()">Merge Sort</button>
         <button class="button" onclick="quickSort()">Quick Sort</button>
-      </div>
-      <div class="slider-container">
-        <input
-          type="range"
-          id="delaySlider"
-          min="0"
-          max="50"
-          value="25"
-          step="5"
-          oninput="updateDelay(this.value)"
-        />
-        <label for="delaySlider"
-          >Delay:
-          <span id="delayValue">25ms</span>
-        </label>
-      </div>
-
-      <div class="slider-container">
         <input
           type="range"
           id="lengthSlider"
@@ -50,6 +38,30 @@
           Array Size:
           <span id="lengthValue">50</span>
         </label>
+        <input
+          type="range"
+          id="delaySlider"
+          min="0"
+          max="50"
+          value="25"
+          step="5"
+          oninput="updateDelay(this.value)"
+        />
+        <label for="delaySlider"
+          >Delay:
+          <span id="delayValue">25ms</span>
+        </label>
+        <a
+          href="https://github.com/s-sajid/sorting-visualizer"
+          target="_blank"
+          class="github-link"
+        >
+          <img
+            src="images/GitHub-Mark.png"
+            alt="GitHub Icon"
+            class="github-icon"
+          />
+        </a>
       </div>
     </header>
 
