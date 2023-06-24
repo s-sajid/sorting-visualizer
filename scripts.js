@@ -81,7 +81,6 @@ function selectionSort() {
       }
 
       if (minIndex !== i) {
-        // Swap elements
         var temp = values[i];
         values[i] = values[minIndex];
         values[minIndex] = temp;
@@ -96,4 +95,31 @@ function selectionSort() {
   }
 
   performSwap(0);
+}
+
+function insertionSort() {
+  reset();
+  var len = values.length;
+
+  function performSwap(i) {
+    setTimeout(function () {
+      var current = values[i];
+      var j = i - 1;
+
+      while (j >= 0 && values[j] > current) {
+        values[j + 1] = values[j];
+        j--;
+      }
+
+      values[j + 1] = current;
+
+      updateBars();
+
+      if (i < len - 1) {
+        performSwap(i + 1);
+      }
+    }, delay);
+  }
+
+  performSwap(1);
 }
