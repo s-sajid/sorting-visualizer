@@ -165,3 +165,56 @@ function quickSort() {
 
   performSort(0, values.length - 1);
 }
+
+function mergeSort() {
+  reset();
+
+  async function performSort(start, end) {
+    if (start >= end) {
+      return;
+    }
+
+    const mid = Math.floor((start + end) / 2);
+
+    await performSort(start, mid);
+    await performSort(mid + 1, end);
+    await merge(start, mid, end);
+  }
+
+  async function merge(start, mid, end) {
+    await sleep(delay);
+    const left = values.slice(start, mid + 1);
+    const right = values.slice(mid + 1, end + 1);
+
+    let leftIndex = 0;
+    let rightIndex = 0;
+    let mergedIndex = start;
+
+    while (leftIndex < left.length && rightIndex < right.length) {
+      if (left[leftIndex] <= right[rightIndex]) {
+        values[mergedIndex] = left[leftIndex];
+        leftIndex++;
+      } else {
+        values[mergedIndex] = right[rightIndex];
+        rightIndex++;
+      }
+      mergedIndex++;
+    }
+
+    while (leftIndex < left.length) {
+      values[mergedIndex] = left[leftIndex];
+      leftIndex++;
+      mergedIndex++;
+    }
+
+    while (rightIndex < right.length) {
+      values[mergedIndex] = right[rightIndex];
+      rightIndex++;
+      mergedIndex++;
+    }
+
+    updateBars(start, end);
+  }
+
+  performSort(0, values.length - 1);
+}
