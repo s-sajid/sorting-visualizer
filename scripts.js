@@ -39,8 +39,8 @@ function reset() {
 reset();
 
 // Sorting Algorithms
-
 function bubbleSort() {
+  reset();
   var len = values.length;
 
   function performSwap(i) {
@@ -63,5 +63,37 @@ function bubbleSort() {
       }
     }, delay);
   }
+  performSwap(0);
+}
+
+function selectionSort() {
+  reset();
+  var len = values.length;
+
+  function performSwap(i) {
+    setTimeout(function () {
+      var minIndex = i;
+
+      for (var j = i + 1; j < len; j++) {
+        if (values[j] < values[minIndex]) {
+          minIndex = j;
+        }
+      }
+
+      if (minIndex !== i) {
+        // Swap elements
+        var temp = values[i];
+        values[i] = values[minIndex];
+        values[minIndex] = temp;
+      }
+
+      updateBars();
+
+      if (i < len - 1) {
+        performSwap(i + 1);
+      }
+    }, delay);
+  }
+
   performSwap(0);
 }
