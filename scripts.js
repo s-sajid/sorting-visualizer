@@ -218,3 +218,52 @@ function mergeSort() {
 
   performSort(0, values.length - 1);
 }
+
+function heapSort() {
+  reset();
+
+  async function performSort() {
+    const len = values.length;
+
+    for (let i = Math.floor(len / 2) - 1; i >= 0; i--) {
+      await heapify(len, i);
+    }
+
+    for (let i = len - 1; i > 0; i--) {
+      await swap(0, i);
+      await heapify(i, 0);
+    }
+  }
+
+  async function heapify(len, rootIndex) {
+    let largestIndex = rootIndex;
+    const leftChildIndex = 2 * rootIndex + 1;
+    const rightChildIndex = 2 * rootIndex + 2;
+
+    if (leftChildIndex < len && values[leftChildIndex] > values[largestIndex]) {
+      largestIndex = leftChildIndex;
+    }
+
+    if (
+      rightChildIndex < len &&
+      values[rightChildIndex] > values[largestIndex]
+    ) {
+      largestIndex = rightChildIndex;
+    }
+
+    if (largestIndex !== rootIndex) {
+      await swap(rootIndex, largestIndex);
+      await heapify(len, largestIndex);
+    }
+  }
+
+  async function swap(i, j) {
+    await sleep(delay);
+    const temp = values[i];
+    values[i] = values[j];
+    values[j] = temp;
+    updateBars();
+  }
+
+  performSort();
+}
